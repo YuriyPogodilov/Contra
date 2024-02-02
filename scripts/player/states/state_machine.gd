@@ -1,26 +1,37 @@
 class_name StateMachine
 extends Node
 
-
 @export var initial_state: State
 
 var player: Player
 var _current_state: State
+var _states: Dictionary = {}
+
+func _ready():
+	for child in get_children():
+		if child is State:
+			_states[child.name.to_lower()] = child
+			child.Transition.connect(on_child_transition)
+
 
 func start():
 	set_state(initial_state)
 
 func update(delta):
-	var direction = Input.get_vector("move_left", "move_right", "look_up", "look_down")
-	if not player.is_on_floor():
-		set_state($Jumping)
-	elif direction.x == 0:
-		set_state($Standing)
-	else:
-		set_state($Running)
-	
-	_current_state.update(delta)
+	if _current_state:
+		_current_state.update(delta)
 
+
+func on_child_transition(state: State, new_state_name: String):
+	if state != _current_state:
+		return
+	
+	var new_state = _states.get(new_state_name.to_lower())
+	if !new_state:
+		return
+
+	new_state.enter(player)
+	_current_state = new_state
 
 func set_state(new_state: State) -> bool:
 	if _current_state == new_state:

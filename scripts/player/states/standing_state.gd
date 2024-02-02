@@ -1,9 +1,5 @@
-class_name Standing
+class_name StandingState
 extends State
-
-
-func enter(player: Player):
-	_player = player
 
 
 func update(delta):
@@ -11,8 +7,15 @@ func update(delta):
 	_player.velocity.x = direction.x * _player.speed
 	
 	if Input.is_action_just_pressed("jump"):
-		_player.velocity.y = -_player.jump_force
+		if direction.y > 0:
+			Transition.emit(self, "fall")
+		else:
+			Transition.emit(self, "jump")
+		return
 
+	if direction.x != 0:
+		Transition.emit(self, "run")
+		return
 	
 	if not _player.is_shooting:
 		_player.get_animation_player().stop()

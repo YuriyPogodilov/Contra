@@ -10,10 +10,12 @@ var is_shooting: bool = false
 var _sm: StateMachine
 var _sprite: Sprite2D
 var _ap: AnimationPlayer
+var _collision_shape: CollisionShape2D
 
 func _ready():
 	_sprite = $Sprite2D
 	_ap = $AnimationPlayer
+	_collision_shape = $CollisionShape2D
 	
 	_sm = $StateMachine
 	_sm.player = self
@@ -27,12 +29,17 @@ func _physics_process(delta):
 			velocity.y = 1000
 	
 	var direction = Input.get_vector("move_left", "move_right", "look_up", "look_down")
-	_sprite.flip_h = direction.x < 0
+	
+	if direction.x < 0:
+		_sprite.flip_h = true
+	elif direction.x > 0:
+		_sprite.flip_h = false
 	
 	is_shooting = Input.is_action_pressed("shoot")
 	_sm.update(delta)
 	
 	move_and_slide()
+
 
 func get_sprite() -> Sprite2D:
 	return _sprite
@@ -40,3 +47,8 @@ func get_sprite() -> Sprite2D:
 
 func get_animation_player() -> AnimationPlayer:
 	return _ap
+
+
+func get_collision_shape() -> CollisionShape2D:
+	return _collision_shape
+

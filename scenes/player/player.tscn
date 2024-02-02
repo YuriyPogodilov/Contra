@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfx3nqfn61pjf"]
+[gd_scene load_steps=17 format=3 uid="uid://cfx3nqfn61pjf"]
 
 [ext_resource type="Texture2D" uid="uid://c7idt4yd3i3yo" path="res://assets/player.png" id="1_artjr"]
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_pbgtt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrv0u"]
-size = Vector2(14, 36)
+[ext_resource type="Script" path="res://scripts/player/states/jumping.gd" id="1_b7stg"]
+[ext_resource type="Script" path="res://scripts/player/states/state_machine.gd" id="1_lf6uh"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_nc2el"]
+[ext_resource type="Script" path="res://scripts/player/states/running.gd" id="3_shunk"]
+[ext_resource type="Script" path="res://scripts/player/states/standing.gd" id="4_e4n0x"]
 
 [sub_resource type="Animation" id="Animation_2hc07"]
 length = 0.001
@@ -18,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 0)]
+"values": [Vector2i(11, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_104ok"]
@@ -152,21 +153,40 @@ _data = {
 "shoot_up": SubResource("Animation_ts13k")
 }
 
-[node name="player" type="CharacterBody2D"]
-script = ExtResource("1_pbgtt")
-jump_force = 300
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dqa0"]
+size = Vector2(16, 36)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_nc2el")
+gravity = null
+speed = null
+jump_force = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2, -19)
 texture = ExtResource("1_artjr")
 hframes = 16
 vframes = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -18)
-shape = SubResource("RectangleShape2D_vrv0u")
+frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bc3v4")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -18)
+shape = SubResource("RectangleShape2D_7dqa0")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_lf6uh")
+initial_state = NodePath("Standing")
+
+[node name="Running" type="Node" parent="StateMachine"]
+script = ExtResource("3_shunk")
+
+[node name="Standing" type="Node" parent="StateMachine"]
+script = ExtResource("4_e4n0x")
+
+[node name="Jumping" type="Node" parent="StateMachine"]
+script = ExtResource("1_b7stg")

@@ -5,9 +5,7 @@ extends CharacterBody2D
 @export var speed: float = 100
 @export var jump_force: float = 300
 
-
 var is_shooting: bool = false
-var _sm: StateMachine
 var _sprite: Sprite2D
 var _ap: AnimationPlayer
 var _collision_shape: CollisionShape2D
@@ -16,10 +14,6 @@ func _ready():
 	_sprite = $Sprite2D
 	_ap = $AnimationPlayer
 	_collision_shape = $CollisionShape2D
-	
-	_sm = $StateMachine
-	_sm.player = self
-	_sm.start()
 
 
 func _physics_process(delta):
@@ -36,7 +30,6 @@ func _physics_process(delta):
 		_sprite.flip_h = false
 	
 	is_shooting = Input.is_action_pressed("shoot")
-	_sm.update(delta)
 	
 	move_and_slide()
 

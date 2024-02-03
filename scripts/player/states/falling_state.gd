@@ -4,6 +4,9 @@ extends State
 func enter(player: Player):
 	super(player)
 	
+	_player.get_animation_player().stop()
+	_player.get_sprite().frame = 11
+	
 	_player.get_collision_shape().disabled = true
 	get_tree().create_timer(0.3).timeout.connect(func(): _player.get_collision_shape().disabled = false)
 
@@ -15,6 +18,3 @@ func update(delta):
 			Transition.emit(self, "stand")
 		else:
 			Transition.emit(self, "run")
-
-	_player.get_sprite().frame = 11
-

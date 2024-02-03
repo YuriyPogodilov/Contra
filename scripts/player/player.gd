@@ -24,10 +24,8 @@ func _physics_process(delta):
 	
 	var direction = Input.get_vector("move_left", "move_right", "look_up", "look_down")
 	
-	if direction.x < 0:
-		_sprite.flip_h = true
-	elif direction.x > 0:
-		_sprite.flip_h = false
+	if direction.x != 0:
+		_sprite.flip_h = true if direction.x < 0 else false
 	
 	is_shooting = Input.is_action_pressed("shoot")
 	
@@ -44,4 +42,3 @@ func get_animation_player() -> AnimationPlayer:
 
 func get_collision_shape() -> CollisionShape2D:
 	return _collision_shape
-

@@ -4,6 +4,8 @@ extends State
 
 func update(delta):
 	var direction = Input.get_vector("move_left", "move_right", "look_up", "look_down")
+	if direction.x != 0:
+		direction.x = 1 if direction.x > 0 else -1
 	_player.velocity.x = direction.x * _player.speed
 	
 	if Input.is_action_just_pressed("jump"):

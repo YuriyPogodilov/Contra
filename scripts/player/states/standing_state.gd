@@ -28,6 +28,8 @@ func update(delta):
 			_player.get_sprite().frame = 14
 	else:
 		if direction.y == 0:
+			# hardcode for reseting shooting point
+			_player.get_animation_player().play("run_n_shoot")
 			_player.get_animation_player().stop()
 			_player.get_sprite().frame = 11
 		elif direction.y < 0:

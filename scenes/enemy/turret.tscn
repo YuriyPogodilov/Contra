@@ -15,6 +15,7 @@ size = Vector2(32, 32)
 
 [node name="Turret" type="StaticBody2D"]
 script = ExtResource("1_j0n0d")
+rotation_speed = 0.5
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.251, 0.251)
@@ -39,7 +40,7 @@ debug_color = Color(0.996078, 0, 0.180392, 0.419608)
 
 [node name="WeaponComponent" type="Node" parent="."]
 script = ExtResource("3_481cp")
-cooldown_time = 0.6
+cooldown_time = 1.0
 collision_mask = 2
 
 [node name="Head" type="Sprite2D" parent="."]

@@ -5,15 +5,7 @@ extends CharacterBody2D
 @export var speed: float = 100
 @export var jump_force: float = 300
 
-var _sprite: Sprite2D
-var _ap: AnimationPlayer
-var _collision_shape: CollisionShape2D
 var _is_facing_right = true
-
-func _ready():
-	_sprite = $Sprite2D
-	_ap = $AnimationPlayer
-	_collision_shape = $CollisionShape2D
 
 
 func _physics_process(delta):
@@ -25,14 +17,14 @@ func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "look_up", "look_down")
 	
 	if direction.x != 0:
-		_sprite.flip_h = direction.x < 0
+		get_sprite().flip_h = direction.x < 0
 	
 	move_and_slide()
 
 
 func shoot(rotation: float):
 	var shooting_point = $ShootingPoint.global_position
-	if _sprite.flip_h:
+	if get_sprite().flip_h:
 		# flipping shooting point with sprite
 		# kinda hardcode :thinking_face:
 		# is there a better solution?
@@ -41,12 +33,15 @@ func shoot(rotation: float):
 
 
 func get_sprite() -> Sprite2D:
-	return _sprite
+	return $Sprite2D
 
 
 func get_animation_player() -> AnimationPlayer:
-	return _ap
+	return $AnimationPlayer
 
 
 func get_collision_shape() -> CollisionShape2D:
-	return _collision_shape
+	return $CollisionShape2D
+
+func get_aim_point() -> Vector2:
+	return $AimPoint.global_position

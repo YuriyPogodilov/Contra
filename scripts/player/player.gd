@@ -5,10 +5,10 @@ extends CharacterBody2D
 @export var speed: float = 100
 @export var jump_force: float = 300
 
-var is_shooting: bool = false
 var _sprite: Sprite2D
 var _ap: AnimationPlayer
 var _collision_shape: CollisionShape2D
+var _is_facing_right = true
 
 func _ready():
 	_sprite = $Sprite2D
@@ -25,11 +25,19 @@ func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "look_up", "look_down")
 	
 	if direction.x != 0:
-		_sprite.flip_h = true if direction.x < 0 else false
-	
-	is_shooting = Input.is_action_pressed("shoot")
+		_sprite.flip_h = direction.x < 0
 	
 	move_and_slide()
+
+
+func shoot(rotation: float):
+	var shooting_point = $ShootingPoint.global_position
+	if _sprite.flip_h:
+		# flipping shooting point with sprite
+		# kinda hardcode :thinking_face:
+		# is there a better solution?
+		shooting_point.x -= 2 * $ShootingPoint.position.x
+	$WeaponComponent.shoot(shooting_point, rotation)
 
 
 func get_sprite() -> Sprite2D:

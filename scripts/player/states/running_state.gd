@@ -19,7 +19,8 @@ func update(delta):
 		Transition.emit(self, "fall")
 		return
 	
-	if not _player.is_shooting:
+	var is_shooting = Input.is_action_pressed("shoot")
+	if not is_shooting:
 		_player.get_animation_player().play("run")
 	else:
 		if direction.y == 0:
@@ -28,3 +29,15 @@ func update(delta):
 			_player.get_animation_player().play("run_n_shoot_down")
 		else:
 			_player.get_animation_player().play("run_n_shoot_up")
+	
+	if is_shooting:
+		var rotation = 0
+		var is_flipped = _player.get_sprite().flip_h
+		if is_flipped:
+			rotation = deg_to_rad(180)
+		if direction.y < 0:
+			rotation = deg_to_rad(-45) if not is_flipped else deg_to_rad(-135)
+		elif direction.y > 0:
+			rotation = deg_to_rad(45) if not is_flipped else deg_to_rad(135)
+		_player.shoot(rotation)
+

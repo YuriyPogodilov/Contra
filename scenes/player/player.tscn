@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://cfx3nqfn61pjf"]
+[gd_scene load_steps=23 format=3 uid="uid://cfx3nqfn61pjf"]
 
 [ext_resource type="Texture2D" uid="uid://c7idt4yd3i3yo" path="res://assets/player.png" id="1_artjr"]
 [ext_resource type="Script" path="res://scripts/player/states/jumping_state.gd" id="1_b7stg"]
 [ext_resource type="Script" path="res://scripts/player/states/state_machine.gd" id="1_lf6uh"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_nc2el"]
+[ext_resource type="Script" path="res://scripts/components/weapon_component.gd" id="1_ug4cm"]
 [ext_resource type="Script" path="res://scripts/player/states/running_state.gd" id="3_shunk"]
 [ext_resource type="Script" path="res://scripts/player/states/standing_state.gd" id="4_e4n0x"]
 [ext_resource type="Script" path="res://scripts/player/states/falling_state.gd" id="7_8liwk"]
@@ -82,10 +83,10 @@ tracks/5/path = NodePath("ShootingPoint:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(15, -24)]
+"values": [Vector2(15, -24), Vector2(17, -23)]
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ylo3d"]
@@ -140,7 +141,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-2, -18)]
+"values": [Vector2(0, -18)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -152,7 +153,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-2, -18)]
+"values": [Vector2(0, -18)]
 }
 
 [sub_resource type="Animation" id="Animation_1utes"]
@@ -193,7 +194,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(29, 11)]
+"values": [Vector2(33, 13)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -217,7 +218,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(14, -11)]
+"values": [Vector2(16, -11)]
 }
 
 [sub_resource type="Animation" id="Animation_qtugv"]
@@ -271,6 +272,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -18)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShootingPoint:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, -24)]
 }
 
 [sub_resource type="Animation" id="Animation_vjk03"]
@@ -335,7 +348,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(15, -24)]
+"values": [Vector2(17, -23)]
 }
 
 [sub_resource type="Animation" id="Animation_qccam"]
@@ -400,7 +413,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(10, -16)]
+"values": [Vector2(12, -15)]
 }
 
 [sub_resource type="Animation" id="Animation_5brlv"]
@@ -465,7 +478,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(9, -36)]
+"values": [Vector2(11, -35)]
 }
 
 [sub_resource type="Animation" id="Animation_ts13k"]
@@ -530,7 +543,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(3, -47)]
+"values": [Vector2(5, -47)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bc3v4"]
@@ -552,19 +565,19 @@ size = Vector2(16, 36)
 script = ExtResource("1_nc2el")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, -19)
+position = Vector2(0, -19)
 texture = ExtResource("1_artjr")
 hframes = 16
 vframes = 4
 frame = 11
 
+[node name="ShootingPoint" type="Marker2D" parent="."]
+position = Vector2(15, -24)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bc3v4")
 }
-
-[node name="ShootingPoint" type="Marker2D" parent="."]
-position = Vector2(15, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18)
@@ -589,11 +602,18 @@ script = ExtResource("7_8liwk")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_ocqs4")
+max_health = 1.0
 
 [node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("8_ippd3")
 health_component = NodePath("../HealthComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_fuf3m")
+
+[node name="WeaponComponent" type="Node" parent="." node_paths=PackedStringArray("shooting_point")]
+script = ExtResource("1_ug4cm")
+shooting_point = NodePath("../ShootingPoint")

@@ -610,10 +610,11 @@ collision_mask = 0
 script = ExtResource("8_ippd3")
 health_component = NodePath("../HealthComponent")
 
-[node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent" groups=["Player"]]
 position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_fuf3m")
+debug_color = Color(0.917647, 0.168627, 0.572549, 0.419608)
 
-[node name="WeaponComponent" type="Node" parent="." node_paths=PackedStringArray("shooting_point")]
+[node name="WeaponComponent" type="Node" parent="."]
 script = ExtResource("1_ug4cm")
-shooting_point = NodePath("../ShootingPoint")
+collision_mask = 3

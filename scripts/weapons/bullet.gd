@@ -13,9 +13,9 @@ func _ready():
 func _physics_process(delta):
 	position += direction * speed * delta
 	
-	#var view_port = get_viewport_rect()
-	#if !view_port.has_point(global_position):
-		#queue_free()
+	var view_port = get_viewport_rect()
+	if !view_port.has_point(global_position):
+		queue_free()
 
 
 func _on_area_entered(area):

@@ -14,8 +14,9 @@ func _physics_process(delta):
 	var head_direction = Vector2.RIGHT.rotated($Head.rotation)
 	var dot = head_direction.dot(player_direction)
 	if dot < 0.99:
-		# TODO: chose correct direction of rotation (clockwise or counter clockwise)
-		$Head.rotation += rotation_speed * delta
+		var angle = head_direction.angle_to(player_direction)
+		var turn_clockwise = 1 if angle > 0 else -1
+		$Head.rotation += turn_clockwise * rotation_speed * delta
 	if dot > 0.7:
 		shoot()
 

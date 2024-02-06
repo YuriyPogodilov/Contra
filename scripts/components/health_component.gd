@@ -1,9 +1,9 @@
 class_name HealthComponent
 extends Node
 
-signal Died
+signal onDied
 
-@export var max_health: float  = 100.0
+@export var max_health: float  = 1.0
 var _health: float
 
 
@@ -17,7 +17,7 @@ func take_damage(damage: float) -> bool:
 	_health -= damage
 	clamp(_health, 0.0, max_health)
 	if _health == 0.0:
-		Died.emit()
+		onDied.emit()
 	return true
 
 

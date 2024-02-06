@@ -45,3 +45,7 @@ func get_collision_shape() -> CollisionShape2D:
 
 func get_aim_point() -> Vector2:
 	return $AimPoint.global_position
+
+
+func _on_health_component_on_died():
+	queue_free()

@@ -8,20 +8,22 @@
 [ext_resource type="Texture2D" uid="uid://4iknyqvv5ih3" path="res://assets/turret.png" id="5_dl2ua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16l23"]
-size = Vector2(32, 32)
+size = Vector2(48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umcmt"]
-size = Vector2(32, 32)
+size = Vector2(48, 48)
 
 [node name="Turret" type="StaticBody2D"]
 script = ExtResource("1_j0n0d")
 rotation_speed = 0.5
 
 [node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.251, 0.251)
+position = Vector2(0, -24)
+scale = Vector2(0.375, 0.375)
 texture = ExtResource("1_igdhu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_16l23")
 
 [node name="HealthComponent" type="Node" parent="."]
@@ -35,6 +37,7 @@ script = ExtResource("2_jeaak")
 health_component = NodePath("../HealthComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_umcmt")
 debug_color = Color(0.996078, 0, 0.180392, 0.419608)
 
@@ -44,9 +47,10 @@ cooldown_time = 1.0
 collision_mask = 2
 
 [node name="Head" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
 texture = ExtResource("5_dl2ua")
 
 [node name="ShootingPoint" type="Marker2D" parent="Head"]
 position = Vector2(12, 0)
 
-[connection signal="Died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="onDied" from="HealthComponent" to="." method="_on_health_component_on_died"]

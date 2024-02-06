@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdoqyj04lcdyc"]
+[gd_scene load_steps=5 format=3 uid="uid://cdoqyj04lcdyc"]
 
 [ext_resource type="PackedScene" uid="uid://cfx3nqfn61pjf" path="res://scenes/player/player.tscn" id="1_tt128"]
 [ext_resource type="PackedScene" uid="uid://dpwtouabqeyij" path="res://scenes/enemy/turret.tscn" id="3_k3q48"]
 [ext_resource type="PackedScene" uid="uid://btnj5ryuyjwav" path="res://scenes/platform.tscn" id="3_nbffy"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="4_lupko"]
 
 [node name="Level" type="Node2D"]
 
@@ -10,12 +11,25 @@
 position = Vector2(330, 268)
 scale = Vector2(57.2983, 0.501097)
 
+[node name="Platform3" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(1018, 268)
+scale = Vector2(57.2983, 0.501097)
+
 [node name="Platform2" parent="." instance=ExtResource("3_nbffy")]
 position = Vector2(327, 217)
 scale = Vector2(13.8439, -0.489624)
 
-[node name="player" parent="." instance=ExtResource("1_tt128")]
-position = Vector2(165, 262)
-
 [node name="Turret" parent="." instance=ExtResource("3_k3q48")]
-position = Vector2(398, 197)
+position = Vector2(390, 214)
+initial_rotaion = -90
+
+[node name="Turret2" parent="." instance=ExtResource("3_k3q48")]
+position = Vector2(937, 264)
+
+[node name="player" parent="." instance=ExtResource("1_tt128")]
+position = Vector2(253, 214)
+
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("player") groups=["Camera"]]
+position = Vector2(320, 160)
+script = ExtResource("4_lupko")
+player = NodePath("../player")

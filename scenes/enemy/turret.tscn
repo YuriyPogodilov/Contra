@@ -53,4 +53,4 @@ texture = ExtResource("5_dl2ua")
 [node name="ShootingPoint" type="Marker2D" parent="Head"]
 position = Vector2(12, 0)
 
-[connection signal="onDied" from="HealthComponent" to="." method="_on_health_component_on_died"]
+[connection signal="Died" from="HealthComponent" to="." method="_on_health_component_died"]

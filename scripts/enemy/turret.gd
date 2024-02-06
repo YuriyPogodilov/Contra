@@ -14,7 +14,6 @@ func _ready():
 func _physics_process(delta):
 	if _player == null:
 		return
-
 	var player_direction = $Head.global_position.direction_to(_player.get_aim_point())
 	var head_direction = Vector2.RIGHT.rotated($Head.rotation)
 	var angle = head_direction.angle_to(player_direction)
@@ -29,6 +28,5 @@ func shoot():
 	$WeaponComponent.shoot($Head/ShootingPoint.global_position, $Head.rotation)
 
 
-
-func _on_health_component_on_died():
+func _on_health_component_died():
 	queue_free()

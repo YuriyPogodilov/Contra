@@ -718,4 +718,4 @@ collision_mask = 3
 [node name="AimPoint" type="Marker2D" parent="."]
 position = Vector2(0, -24)
 
-[connection signal="onDied" from="HealthComponent" to="." method="_on_health_component_on_died"]
+[connection signal="Died" from="HealthComponent" to="." method="_on_health_component_died"]

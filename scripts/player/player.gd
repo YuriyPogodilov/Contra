@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+@export_category("Stats")
 @export var gravity: float = 10
 @export var speed: float = 100
 @export var jump_force: float = 300
@@ -43,9 +44,15 @@ func get_animation_player() -> AnimationPlayer:
 func get_collision_shape() -> CollisionShape2D:
 	return $CollisionShape2D
 
+
 func get_aim_point() -> Vector2:
 	return $AimPoint.global_position
 
 
-func _on_health_component_on_died():
+func get_health_component() -> HealthComponent:
+	return $HealthComponent
+
+
+func _on_health_component_died():
+	# TODO: Game Over
 	queue_free()

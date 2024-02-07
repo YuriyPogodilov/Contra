@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdoqyj04lcdyc"]
 
 [ext_resource type="PackedScene" uid="uid://cfx3nqfn61pjf" path="res://game/player/player.tscn" id="1_tt128"]
-[ext_resource type="PackedScene" uid="uid://dpwtouabqeyij" path="res://game/enemy/turret.tscn" id="3_k3q48"]
 [ext_resource type="PackedScene" uid="uid://btnj5ryuyjwav" path="res://game/levels/platform.tscn" id="3_nbffy"]
 [ext_resource type="PackedScene" uid="uid://dy57vu7yo5xnv" path="res://game/camera/camera.tscn" id="4_2xqtv"]
+[ext_resource type="PackedScene" uid="uid://c1mjgbinuxsgv" path="res://game/powerup/powerup.tscn" id="5_1jk64"]
 
 [node name="Level" type="Node2D"]
 
@@ -19,15 +19,12 @@ scale = Vector2(57.2983, 0.501097)
 position = Vector2(327, 217)
 scale = Vector2(13.8439, -0.489624)
 
-[node name="Turret" parent="." instance=ExtResource("3_k3q48")]
-position = Vector2(390, 214)
-initial_rotaion = -90
-
-[node name="Turret2" parent="." instance=ExtResource("3_k3q48")]
-position = Vector2(937, 264)
-
 [node name="player" parent="." instance=ExtResource("1_tt128")]
 position = Vector2(253, 214)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_2xqtv")]
 player = NodePath("../player")
+
+[node name="Powerup" parent="." instance=ExtResource("5_1jk64")]
+position = Vector2(252, 89)
+scale = Vector2(1, 1.03115)

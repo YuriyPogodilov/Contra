@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1mjgbinuxsgv"]
+
+[ext_resource type="Texture2D" uid="uid://bu4jo0n8gglw" path="res://assets/powerups/powerups.png" id="1_rfb8e"]
+[ext_resource type="Script" path="res://game/powerup/powerup.gd" id="1_vs5qy"]
+[ext_resource type="Script" path="res://components/health_component.gd" id="2_i2byb"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="3_sf8wk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgdyv"]
+size = Vector2(18, 12)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bsmed"]
+radius = 6.0
+height = 22.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2myr"]
+size = Vector2(26, 18)
+
+[node name="Powerup" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_vs5qy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lgdyv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rfb8e")
+hframes = 7
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_i2byb")
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+position = Vector2(-118, -131)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_sf8wk")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(118, 131)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_bsmed")
+debug_color = Color(0.960784, 0.27451, 0, 0.419608)
+
+[node name="PickupArea" type="Area2D" parent="."]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_c2myr")
+debug_color = Color(0.262745, 0.607843, 0, 0.419608)
+
+[connection signal="Died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]

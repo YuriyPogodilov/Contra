@@ -4,7 +4,7 @@ extends Node
 @export var cooldown_time: float = 0.3
 @export var collision_mask: int = 0
 
-const BULLET = preload("res://scenes/weapons/bullet.tscn")
+const BULLET = preload("res://weapons/bullet.tscn")
 
 var _is_on_cooldown = false
 

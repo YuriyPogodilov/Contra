@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu4jo0n8gglw"
-path="res://.godot/imported/powerups.png-4357fff095639c3686cea16b7fbe3524.ctex"
+uid="uid://4iknyqvv5ih3"
+path="res://.godot/imported/turret.png-988b0a8c8ef12c11c58af047c955df66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/powerups.png"
-dest_files=["res://.godot/imported/powerups.png-4357fff095639c3686cea16b7fbe3524.ctex"]
+source_file="res://assets/enemy/turret.png"
+dest_files=["res://.godot/imported/turret.png-988b0a8c8ef12c11c58af047c955df66.ctex"]
 
 [params]
 

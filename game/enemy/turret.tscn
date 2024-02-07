@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpwtouabqeyij"]
 
 [ext_resource type="Texture2D" uid="uid://c4ogf8ch6nsd7" path="res://assets/icon.svg" id="1_igdhu"]
-[ext_resource type="Script" path="res://enemy/turret.gd" id="1_j0n0d"]
+[ext_resource type="Script" path="res://game/enemy/turret.gd" id="1_j0n0d"]
 [ext_resource type="Script" path="res://components/health_component.gd" id="1_qgo20"]
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="2_jeaak"]
 [ext_resource type="Script" path="res://components/weapon_component.gd" id="3_481cp"]
-[ext_resource type="Texture2D" uid="uid://4iknyqvv5ih3" path="res://assets/turret.png" id="5_dl2ua"]
+[ext_resource type="Texture2D" uid="uid://4iknyqvv5ih3" path="res://assets/enemy/turret.png" id="5_dl2ua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16l23"]
 size = Vector2(48, 48)

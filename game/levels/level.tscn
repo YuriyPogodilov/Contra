@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdoqyj04lcdyc"]
 
-[ext_resource type="PackedScene" uid="uid://cfx3nqfn61pjf" path="res://player/player.tscn" id="1_tt128"]
-[ext_resource type="PackedScene" uid="uid://dpwtouabqeyij" path="res://enemy/turret.tscn" id="3_k3q48"]
-[ext_resource type="PackedScene" uid="uid://btnj5ryuyjwav" path="res://levels/platform.tscn" id="3_nbffy"]
-[ext_resource type="PackedScene" uid="uid://dy57vu7yo5xnv" path="res://camera/camera.tscn" id="4_2xqtv"]
+[ext_resource type="PackedScene" uid="uid://cfx3nqfn61pjf" path="res://game/player/player.tscn" id="1_tt128"]
+[ext_resource type="PackedScene" uid="uid://dpwtouabqeyij" path="res://game/enemy/turret.tscn" id="3_k3q48"]
+[ext_resource type="PackedScene" uid="uid://btnj5ryuyjwav" path="res://game/levels/platform.tscn" id="3_nbffy"]
+[ext_resource type="PackedScene" uid="uid://dy57vu7yo5xnv" path="res://game/camera/camera.tscn" id="4_2xqtv"]
 
 [node name="Level" type="Node2D"]
 

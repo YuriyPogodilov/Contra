@@ -24,5 +24,8 @@ func reveal_weapon():
 
 func _on_pickup_area_area_entered(area):
 	if area.get_parent() is Player:
+		var player: Player = area.get_parent()
+		var gun = preload("res://game/weapons/machine_gun.tres")
+		player.pick_up_gun(gun)
 		queue_free()
 

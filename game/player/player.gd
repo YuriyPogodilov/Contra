@@ -33,6 +33,10 @@ func shoot(rotation: float):
 	$WeaponComponent.shoot(shooting_point, rotation)
 
 
+func pick_up_gun(new_gun: Gun):
+	get_weapon_component().set_gun(new_gun)
+
+
 func get_sprite() -> Sprite2D:
 	return $Sprite2D
 
@@ -51,6 +55,10 @@ func get_aim_point() -> Vector2:
 
 func get_health_component() -> HealthComponent:
 	return $HealthComponent
+
+
+func get_weapon_component() -> WeaponComponent:
+	return $WeaponComponent
 
 
 func _on_health_component_died():

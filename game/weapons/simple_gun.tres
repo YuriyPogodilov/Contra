@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Gun" load_steps=3 format=3 uid="uid://bqrcsuck3rhbl"]
+
+[ext_resource type="PackedScene" uid="uid://cl0q01hgjsvfj" path="res://game/weapons/ammo/bullet.tscn" id="1_65bq6"]
+[ext_resource type="Script" path="res://game/weapons/gun.gd" id="1_eovlp"]
+
+[resource]
+script = ExtResource("1_eovlp")
+name = "SimpleGun"
+rate_of_fire = 2.0
+ammo = ExtResource("1_65bq6")

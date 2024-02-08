@@ -1,12 +1,11 @@
 class_name PlayerCamera
 extends Camera2D
 
-@export var player: Player
 
+func update_position(new_position: Vector2):
+	if new_position.x > global_position.x:
+		global_position.x = new_position.x
 
-func _physics_process(delta):
-	if player != null:
-		global_position.x = player.global_position.x
 
 func get_rect() -> Rect2:
 	var view_port_size = get_viewport_rect().size

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dy57vu7yo5xnv"]
 
-[ext_resource type="Script" path="res://game/camera/camera.gd" id="1_ngktx"]
+[ext_resource type="Script" path="res://camera/camera.gd" id="1_ngktx"]
 [ext_resource type="PackedScene" uid="uid://uyvyi5rcc4dy" path="res://ui/main_gui.tscn" id="2_jpeb3"]
 
 [node name="Camera" type="Camera2D" groups=["Camera"]]

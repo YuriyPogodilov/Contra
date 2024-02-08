@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 GameMode="*res://game/game_mode.gd"
+Camera="*res://camera/camera.tscn"
 
 [display]
 

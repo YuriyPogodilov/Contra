@@ -20,6 +20,11 @@ func _physics_process(delta):
 	if direction.x != 0:
 		get_sprite().flip_h = direction.x < 0
 	
+	if Camera.get_rect().position.x > global_position.x:
+		global_position.x = Camera.get_rect().position.x
+	
+	Camera.update_position(global_position)
+	
 	move_and_slide()
 
 

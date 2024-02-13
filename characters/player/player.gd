@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var state_machine = $StateMachine
+
 @export_category("Stats")
 @export var gravity: float = 10
 @export var speed: float = 100
@@ -24,6 +26,8 @@ func _physics_process(delta):
 		global_position.x = Camera.get_rect().position.x
 	
 	Camera.update_position(global_position)
+	
+	state_machine.update(delta)
 	
 	move_and_slide()
 

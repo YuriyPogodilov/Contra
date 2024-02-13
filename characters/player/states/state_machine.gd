@@ -17,7 +17,7 @@ func _ready():
 	_current_state.enter(player)
 
 
-func _physics_process(delta):
+func update(delta):
 	if _current_state:
 		_current_state.update(delta)
 

@@ -1,15 +1,19 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdoqyj04lcdyc"]
 
-[ext_resource type="PackedScene" uid="uid://cfx3nqfn61pjf" path="res://game/player/player.tscn" id="1_tt128"]
-[ext_resource type="PackedScene" uid="uid://btnj5ryuyjwav" path="res://game/levels/platform.tscn" id="3_nbffy"]
+[ext_resource type="PackedScene" uid="uid://cfx3nqfn61pjf" path="res://characters/player/player.tscn" id="1_tt128"]
+[ext_resource type="PackedScene" uid="uid://btnj5ryuyjwav" path="res://levels/platform.tscn" id="3_nbffy"]
 [ext_resource type="PackedScene" uid="uid://dy57vu7yo5xnv" path="res://camera/camera.tscn" id="4_2xqtv"]
 [ext_resource type="PackedScene" uid="uid://c1mjgbinuxsgv" path="res://game/powerup/powerup.tscn" id="5_1jk64"]
-[ext_resource type="PackedScene" uid="uid://dpwtouabqeyij" path="res://game/enemy/turret.tscn" id="5_qng3y"]
+[ext_resource type="PackedScene" uid="uid://dpwtouabqeyij" path="res://characters/enemy/turret.tscn" id="5_qng3y"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Platform" parent="." instance=ExtResource("3_nbffy")]
 position = Vector2(330, 268)
+scale = Vector2(57.2983, 0.501097)
+
+[node name="Platform4" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(330, 320)
 scale = Vector2(57.2983, 0.501097)
 
 [node name="Platform3" parent="." instance=ExtResource("3_nbffy")]

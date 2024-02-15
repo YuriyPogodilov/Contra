@@ -26,7 +26,7 @@ func _apply_health_change(value) -> bool:
 	_health = new_health
 	HealthChanged.emit(new_health, delta)
 	
-	if _health == 0.0:
+	if _health <= 0.0:
 		Died.emit()
 	
 	return true

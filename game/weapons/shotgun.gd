@@ -12,10 +12,10 @@ func shoot(shooting_point: Vector2, direction: Vector2):
 	start_cooldown()
 	
 	var rotation = Vector2.RIGHT.angle_to(direction)
-	var rotation_step = deg_to_rad(spread_cone_angle) / float(bullets_per_shot)
-	var start_rotation = rotation - rotation_step * (bullets_per_shot / 2.0)
+	var rotation_step = deg_to_rad(spread_cone_angle) / float(bullets_per_shot - 1)
+	var start_rotation = rotation - rotation_step * ((bullets_per_shot - 1)/ 2.0)
 	for i in range(bullets_per_shot):
-		var new_bullet = bullet.instantiate()
+		var new_bullet = bullet.instantiate() 
 		new_bullet.global_position = shooting_point
 		new_bullet.global_rotation = start_rotation + rotation_step * i
 		new_bullet.set_collision_mask_value(_collision_mask, true)

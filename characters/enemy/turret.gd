@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+@onready var shooting_point = $Head/ShootingPoint
+
 @export var rotation_speed = 0.6
 @export_range(-180, 180, 5) var initial_rotaion: int = 0
 
@@ -9,7 +11,7 @@ var _player: Player
 func _ready():
 	_player = get_tree().get_first_node_in_group("Player")
 	$Head.rotation = deg_to_rad(initial_rotaion)
-
+	$WeaponComponent.set_gun(preload("res://game/weapons/turret_gun.tscn").instantiate())
 
 func _physics_process(delta):
 	if _player == null:
@@ -25,7 +27,7 @@ func _physics_process(delta):
 
 
 func shoot():
-	$WeaponComponent.shoot($Head/ShootingPoint.global_position, $Head.rotation)
+	$WeaponComponent.shoot(shooting_point.global_position, Vector2.RIGHT.rotated($Head.rotation))
 
 
 func _on_health_component_died():

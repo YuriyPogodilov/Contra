@@ -11,6 +11,10 @@ extends CharacterBody2D
 var _is_facing_right = true
 
 
+func _ready():
+	pick_up_gun(preload("res://game/weapons/simple_gun.tscn").instantiate())
+
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity
@@ -32,14 +36,14 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func shoot(rotation: float):
+func shoot(direction: Vector2):
 	var shooting_point = $ShootingPoint.global_position
 	if get_sprite().flip_h:
 		# flipping shooting point with sprite
 		# kinda hardcode :thinking_face:
 		# is there a better solution?
 		shooting_point.x -= 2 * $ShootingPoint.position.x
-	$WeaponComponent.shoot(shooting_point, rotation)
+	$WeaponComponent.shoot(shooting_point, direction)
 
 
 func pick_up_gun(new_gun: Gun):

@@ -43,7 +43,6 @@ debug_color = Color(0.996078, 0, 0.180392, 0.419608)
 
 [node name="WeaponComponent" type="Node" parent="."]
 script = ExtResource("3_481cp")
-cooldown_time = 1.0
 collision_mask = 2
 
 [node name="Head" type="Sprite2D" parent="."]

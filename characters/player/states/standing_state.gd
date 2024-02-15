@@ -40,4 +40,4 @@ func update(delta):
 			rotation = deg_to_rad(180)
 		if direction.y < 0:
 			rotation = deg_to_rad(-90)
-		_player.shoot(rotation)
+		_player.shoot(Vector2.RIGHT.rotated(rotation))

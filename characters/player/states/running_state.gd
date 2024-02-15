@@ -39,5 +39,4 @@ func update(delta):
 			rotation = deg_to_rad(-45) if not is_flipped else deg_to_rad(-135)
 		elif direction.y > 0:
 			rotation = deg_to_rad(45) if not is_flipped else deg_to_rad(135)
-		_player.shoot(rotation)
-
+		_player.shoot(Vector2.RIGHT.rotated(rotation))

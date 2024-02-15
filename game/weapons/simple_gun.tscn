@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlhwddt07gkd8"]
+
+[ext_resource type="Script" path="res://game/weapons/gun.gd" id="1_tggpv"]
+[ext_resource type="PackedScene" uid="uid://cl0q01hgjsvfj" path="res://game/weapons/ammo/bullet.tscn" id="2_sixkg"]
+
+[node name="SimpleGun" type="Node"]
+script = ExtResource("1_tggpv")
+rate_of_fire = 2.0
+bullet = ExtResource("2_sixkg")

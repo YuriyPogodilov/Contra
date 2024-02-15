@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bodc4e0dq7evj"]
+
+[ext_resource type="Script" path="res://game/weapons/gun.gd" id="1_0vu2f"]
+[ext_resource type="PackedScene" uid="uid://cl0q01hgjsvfj" path="res://game/weapons/ammo/bullet.tscn" id="2_7khk5"]
+
+[node name="TurretGun" type="Node"]
+script = ExtResource("1_0vu2f")
+rate_of_fire = 5.0
+bullet = ExtResource("2_7khk5")

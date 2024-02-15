@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://clgnnyabek5l2"]
 
 [ext_resource type="Script" path="res://game/weapons/gun.gd" id="1_122n2"]
-[ext_resource type="PackedScene" uid="uid://cl0q01hgjsvfj" path="res://game/weapons/ammo/bullet.tscn" id="2_i4qpr"]
+[ext_resource type="PackedScene" uid="uid://dpjh5v7dgmn7b" path="res://game/weapons/ammo/big_bullet.tscn" id="2_nvgx6"]
 
 [node name="MachineGun" type="Node"]
 script = ExtResource("1_122n2")
 rate_of_fire = 10.0
-bullet = ExtResource("2_i4qpr")
+bullet = ExtResource("2_nvgx6")

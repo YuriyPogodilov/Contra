@@ -33,4 +33,4 @@ func shoot(shooting_point: Vector2, direction: Vector2):
 	new_bullet.global_position = shooting_point
 	new_bullet.global_rotation = Vector2.RIGHT.angle_to(direction)
 	new_bullet.set_collision_mask_value(_collision_mask, true)
-	_owner.add_child(new_bullet)
+	_owner.get_tree().root.add_child(new_bullet)

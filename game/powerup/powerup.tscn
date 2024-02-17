@@ -17,6 +17,7 @@ size = Vector2(26, 18)
 
 [node name="Powerup" type="CharacterBody2D"]
 collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_vs5qy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -36,7 +37,7 @@ collision_mask = 0
 script = ExtResource("3_sf8wk")
 health_component = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+[node name="HitboxCollisionShape" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(118, 131)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_bsmed")
@@ -45,9 +46,9 @@ debug_color = Color(0.960784, 0.27451, 0, 0.419608)
 [node name="PickupArea" type="Area2D" parent="."]
 position = Vector2(0, 1)
 collision_layer = 0
-collision_mask = 10
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+[node name="PickupCollisionShape" type="CollisionShape2D" parent="PickupArea"]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_c2myr")
 debug_color = Color(0.262745, 0.607843, 0, 0.419608)

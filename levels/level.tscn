@@ -39,7 +39,11 @@ position = Vector2(253, 214)
 metadata/_edit_lock_ = true
 
 [node name="Powerup" parent="." instance=ExtResource("5_1jk64")]
-position = Vector2(252, 89)
+position = Vector2(-33, 83)
+scale = Vector2(1, 1.03115)
+
+[node name="Powerup2" parent="." instance=ExtResource("5_1jk64")]
+position = Vector2(-33, 233)
 scale = Vector2(1, 1.03115)
 
 [node name="Turret" parent="." instance=ExtResource("5_qng3y")]

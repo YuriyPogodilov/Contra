@@ -26,4 +26,6 @@ func update(delta):
 		return
 
 	_player.velocity.x = direction.x * _player.speed
-
+	
+	if Input.is_action_pressed("shoot"):
+		_player.shoot(direction)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdoqyj04lcdyc"]
+[gd_scene load_steps=7 format=3 uid="uid://cdoqyj04lcdyc"]
 
 [ext_resource type="Texture2D" uid="uid://cimyasi21bnyk" path="res://assets/level/jungle.png" id="1_8t48i"]
 [ext_resource type="PackedScene" uid="uid://cfx3nqfn61pjf" path="res://characters/player/player.tscn" id="1_tt128"]
 [ext_resource type="PackedScene" uid="uid://btnj5ryuyjwav" path="res://levels/platform.tscn" id="3_nbffy"]
 [ext_resource type="PackedScene" uid="uid://dy57vu7yo5xnv" path="res://camera/camera.tscn" id="4_2xqtv"]
 [ext_resource type="PackedScene" uid="uid://c1mjgbinuxsgv" path="res://game/powerup/powerup.tscn" id="5_1jk64"]
+[ext_resource type="PackedScene" uid="uid://dpwtouabqeyij" path="res://characters/enemy/turret.tscn" id="5_qng3y"]
 
 [node name="Level" type="Node2D"]
 
@@ -19,7 +20,7 @@ position = Vector2(398, 129)
 scale = Vector2(61.1783, 0.484778)
 
 [node name="Platform44" parent="." instance=ExtResource("3_nbffy")]
-position = Vector2(860, 241)
+position = Vector2(860, 247)
 scale = Vector2(145.458, 0.484778)
 
 [node name="Platform9" parent="." instance=ExtResource("3_nbffy")]
@@ -203,3 +204,18 @@ scale = Vector2(1, 1.03115)
 [node name="Powerup2" parent="." instance=ExtResource("5_1jk64")]
 position = Vector2(-39, 160)
 scale = Vector2(1, 1.03115)
+
+[node name="Turret" parent="." instance=ExtResource("5_qng3y")]
+position = Vector2(1648, 152)
+
+[node name="Turret3" parent="." instance=ExtResource("5_qng3y")]
+position = Vector2(1840, 152)
+
+[node name="Turret4" parent="." instance=ExtResource("5_qng3y")]
+position = Vector2(3120, 216)
+
+[node name="Turret5" parent="." instance=ExtResource("5_qng3y")]
+position = Vector2(3248, 216)
+
+[node name="Turret2" parent="." instance=ExtResource("5_qng3y")]
+position = Vector2(1264, 184)

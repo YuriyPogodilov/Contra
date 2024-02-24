@@ -14,7 +14,7 @@ func enter(player: Player):
 func update(delta):
 	var direction = Input.get_vector("move_left", "move_right", "look_up", "look_down")
 	if _player.is_on_floor():
-		if _player.global_position.y > 310:
+		if _player.global_position.y > 230:
 			Transition.emit(self, "swim")
 		elif direction.x == 0:
 			Transition.emit(self, "stand")

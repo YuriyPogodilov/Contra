@@ -1,50 +1,205 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdoqyj04lcdyc"]
 
+[ext_resource type="Texture2D" uid="uid://cimyasi21bnyk" path="res://assets/level/jungle.png" id="1_8t48i"]
 [ext_resource type="PackedScene" uid="uid://cfx3nqfn61pjf" path="res://characters/player/player.tscn" id="1_tt128"]
 [ext_resource type="PackedScene" uid="uid://btnj5ryuyjwav" path="res://levels/platform.tscn" id="3_nbffy"]
 [ext_resource type="PackedScene" uid="uid://dy57vu7yo5xnv" path="res://camera/camera.tscn" id="4_2xqtv"]
 [ext_resource type="PackedScene" uid="uid://c1mjgbinuxsgv" path="res://game/powerup/powerup.tscn" id="5_1jk64"]
-[ext_resource type="PackedScene" uid="uid://dpwtouabqeyij" path="res://characters/enemy/turret.tscn" id="5_qng3y"]
 
 [node name="Level" type="Node2D"]
 
+[node name="JungleBg" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("1_8t48i")
+centered = false
+metadata/_edit_lock_ = true
+
 [node name="Platform" parent="." instance=ExtResource("3_nbffy")]
-position = Vector2(330, 268)
-scale = Vector2(57.2983, 0.501097)
+position = Vector2(398, 129)
+scale = Vector2(61.1783, 0.484778)
 
-[node name="Platform4" parent="." instance=ExtResource("3_nbffy")]
-position = Vector2(330, 320)
-scale = Vector2(57.2983, 0.501097)
+[node name="Platform44" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(860, 241)
+scale = Vector2(145.458, 0.484778)
 
-[node name="Platform6" parent="." instance=ExtResource("3_nbffy")]
-position = Vector2(1006, 320)
-scale = Vector2(57.2983, 0.501097)
+[node name="Platform9" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(831, 129)
+scale = Vector2(10.7783, 0.484778)
 
-[node name="Platform3" parent="." instance=ExtResource("3_nbffy")]
-position = Vector2(1018, 268)
-scale = Vector2(57.2983, 0.501097)
+[node name="Platform10" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(1120, 129)
+scale = Vector2(10.7783, 0.484778)
+
+[node name="Platform11" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(975, 129)
+scale = Vector2(13.3383, 0.484778)
+
+[node name="Platform12" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(1312, 129)
+scale = Vector2(21.2983, 0.484778)
+
+[node name="Platform13" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(1632, 97)
+scale = Vector2(42.4983, 0.484778)
+
+[node name="Platform14" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(1712, 161)
+scale = Vector2(18.6583, 0.484778)
+
+[node name="Platform17" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(1824, 225)
+scale = Vector2(15.9383, 0.484778)
+
+[node name="Platform15" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(1456, 225)
+scale = Vector2(8.01826, 0.484778)
+
+[node name="Platform16" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(1536, 177)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform18" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(1952, 193)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform19" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2048, 193)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform35" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2128, 177)
+scale = Vector2(2.65825, 0.484778)
+
+[node name="Platform36" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2480, 225)
+scale = Vector2(2.65825, 0.484778)
+
+[node name="Platform37" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2640, 225)
+scale = Vector2(2.65825, 0.484778)
+
+[node name="Platform38" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2672, 177)
+scale = Vector2(2.65825, 0.484778)
+
+[node name="Platform39" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(3280, 161)
+scale = Vector2(2.65825, 0.484778)
+
+[node name="Platform40" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(3312, 192)
+scale = Vector2(2.65825, 0.484778)
+
+[node name="Platform21" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2272, 129)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform22" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2400, 129)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform25" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2496, 161)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform26" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2624, 129)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform27" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2656, 97)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform28" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2752, 129)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform29" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(3008, 193)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform43" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2896, 225)
+scale = Vector2(7.97817, 0.484778)
+
+[node name="Platform30" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(3104, 161)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform31" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(3200, 129)
+scale = Vector2(10.6582, 0.484778)
+
+[node name="Platform41" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(3216, 177)
+scale = Vector2(7.93825, 0.484778)
+
+[node name="Platform42" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(3296, 225)
+scale = Vector2(26.6982, 0.484778)
+
+[node name="Platform32" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2832, 161)
+scale = Vector2(13.2982, 0.484778)
+
+[node name="Platform23" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2368, 161)
+scale = Vector2(5.29825, 0.484778)
+
+[node name="Platform24" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2544, 193)
+scale = Vector2(7.93825, 0.484778)
+
+[node name="Platform20" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(1968, 129)
+scale = Vector2(18.6183, 0.484778)
+
+[node name="Platform33" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2128, 97)
+scale = Vector2(13.3783, 0.484778)
+
+[node name="Platform34" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(2224, 161)
+scale = Vector2(8.0583, 0.484778)
 
 [node name="Platform2" parent="." instance=ExtResource("3_nbffy")]
-position = Vector2(327, 217)
-scale = Vector2(13.8439, -0.489624)
+position = Vector2(207, 161)
+scale = Vector2(8.0183, 0.484778)
+
+[node name="Platform7" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(687, 177)
+scale = Vector2(8.0183, 0.484778)
+
+[node name="Platform3" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(447, 161)
+scale = Vector2(5.2983, 0.484778)
+
+[node name="Platform8" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(639, 225)
+scale = Vector2(5.2983, 0.484778)
+
+[node name="Platform4" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(319, 225)
+scale = Vector2(5.2983, 0.484778)
 
 [node name="Platform5" parent="." instance=ExtResource("3_nbffy")]
-position = Vector2(1067, 238)
-scale = Vector2(13.8439, -0.489624)
+position = Vector2(271, 193)
+scale = Vector2(2.6183, 0.484778)
+
+[node name="Platform6" parent="." instance=ExtResource("3_nbffy")]
+position = Vector2(367, 193)
+scale = Vector2(2.6183, 0.484778)
 
 [node name="player" parent="." instance=ExtResource("1_tt128")]
-position = Vector2(253, 214)
+position = Vector2(39, 107)
 
 [node name="Camera" parent="." instance=ExtResource("4_2xqtv")]
 metadata/_edit_lock_ = true
 
 [node name="Powerup" parent="." instance=ExtResource("5_1jk64")]
-position = Vector2(-33, 83)
+position = Vector2(-37, 50)
 scale = Vector2(1, 1.03115)
 
 [node name="Powerup2" parent="." instance=ExtResource("5_1jk64")]
-position = Vector2(-33, 233)
+position = Vector2(-39, 160)
 scale = Vector2(1, 1.03115)
-
-[node name="Turret" parent="." instance=ExtResource("5_qng3y")]
-position = Vector2(686, 265)

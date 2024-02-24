@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://uyvyi5rcc4dy" path="res://ui/main_gui.tscn" id="2_jpeb3"]
 
 [node name="Camera" type="Camera2D" groups=["Camera"]]
-position = Vector2(320, 160)
+position = Vector2(240, 120)
 script = ExtResource("1_ngktx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainGui" parent="CanvasLayer" instance=ExtResource("2_jpeb3")]
+offset_left = -1.0
+offset_right = -1.0

@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://components/health_component.gd" id="1_qgo20"]
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="2_jeaak"]
 [ext_resource type="Script" path="res://components/weapon_component.gd" id="3_481cp"]
-[ext_resource type="Texture2D" uid="uid://4iknyqvv5ih3" path="res://assets/enemy/turret.png" id="5_dl2ua"]
 [ext_resource type="Texture2D" uid="uid://7jhk7y2152e2" path="res://assets/enemy/turret_bg.png" id="6_4x44q"]
+[ext_resource type="Texture2D" uid="uid://b87j3b1m4h80t" path="res://assets/enemy/turret_head.png" id="6_ufu8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16l23"]
 size = Vector2(32, 32)
@@ -47,9 +47,10 @@ collision_mask = 2
 
 [node name="Head" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
-texture = ExtResource("5_dl2ua")
+texture = ExtResource("6_ufu8q")
 
 [node name="ShootingPoint" type="Marker2D" parent="Head"]
-position = Vector2(12, 0)
+position = Vector2(14, 0)
+rotation = -1.5708
 
 [connection signal="Died" from="HealthComponent" to="." method="_on_health_component_died"]

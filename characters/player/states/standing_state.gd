@@ -35,4 +35,9 @@ func update(delta):
 			_player.get_sprite().frame = 14
 
 	if is_shooting:
-		_player.shoot(direction)
+		var rotation = 0
+		if _player.get_sprite().flip_h:
+			rotation = deg_to_rad(180)
+		if direction.y < 0:
+			rotation = deg_to_rad(-90)
+		_player.shoot(Vector2.RIGHT.rotated(rotation))

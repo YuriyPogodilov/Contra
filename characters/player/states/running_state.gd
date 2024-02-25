@@ -31,4 +31,12 @@ func update(delta):
 			_player.get_animation_player().play("run_n_shoot_up")
 	
 	if is_shooting:
-		_player.shoot(direction)
+		var rotation = 0
+		var is_flipped = _player.get_sprite().flip_h
+		if is_flipped:
+			rotation = deg_to_rad(180)
+		if direction.y < 0:
+			rotation = deg_to_rad(-45) if not is_flipped else deg_to_rad(-135)
+		elif direction.y > 0:
+			rotation = deg_to_rad(45) if not is_flipped else deg_to_rad(135)
+		_player.shoot(Vector2.RIGHT.rotated(rotation))

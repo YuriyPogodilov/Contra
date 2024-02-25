@@ -76,4 +76,4 @@ func get_weapon_component() -> WeaponComponent:
 
 func _on_health_component_died():
 	# TODO: Game Over
-	queue_free()
+	state_machine.set_state("death")

@@ -25,7 +25,11 @@ func update(delta):
 func on_child_transition(state: State, new_state_name: String):
 	if state != _current_state:
 		return
-	
+
+	set_state(new_state_name)
+
+
+func set_state(new_state_name: String):
 	var new_state = _states.get(new_state_name.to_lower())
 	if !new_state:
 		return

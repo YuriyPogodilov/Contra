@@ -44,3 +44,7 @@ func take_heal(heal: float) -> bool:
 		return false
 	
 	return _apply_health_change(heal)
+
+
+func kill():
+	take_damage(max_health)

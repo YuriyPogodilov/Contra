@@ -31,6 +31,9 @@ func _physics_process(delta):
 	
 	Camera.update_position(global_position)
 	
+	if global_position.y >= 250:
+		get_health_component().kill()
+	
 	state_machine.update(delta)
 	
 	move_and_slide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdoqyj04lcdyc"]
+[gd_scene load_steps=8 format=3 uid="uid://cdoqyj04lcdyc"]
 
 [ext_resource type="Texture2D" uid="uid://cimyasi21bnyk" path="res://assets/level/jungle.png" id="1_8t48i"]
 [ext_resource type="PackedScene" uid="uid://cfx3nqfn61pjf" path="res://characters/player/player.tscn" id="1_tt128"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dy57vu7yo5xnv" path="res://camera/camera.tscn" id="4_2xqtv"]
 [ext_resource type="PackedScene" uid="uid://c1mjgbinuxsgv" path="res://game/powerup/powerup.tscn" id="5_1jk64"]
 [ext_resource type="PackedScene" uid="uid://dpwtouabqeyij" path="res://characters/enemy/turret.tscn" id="5_qng3y"]
+[ext_resource type="PackedScene" uid="uid://chaw1cjqknylm" path="res://characters/enemy/runner.tscn" id="7_ax6hi"]
 
 [node name="Level" type="Node2D"]
 
@@ -192,7 +193,7 @@ position = Vector2(367, 193)
 scale = Vector2(2.6183, 0.484778)
 
 [node name="player" parent="." instance=ExtResource("1_tt128")]
-position = Vector2(39, 107)
+position = Vector2(50, 84)
 
 [node name="Camera" parent="." instance=ExtResource("4_2xqtv")]
 metadata/_edit_lock_ = true
@@ -219,3 +220,6 @@ position = Vector2(3248, 216)
 
 [node name="Turret2" parent="." instance=ExtResource("5_qng3y")]
 position = Vector2(1264, 184)
+
+[node name="Runner" parent="." instance=ExtResource("7_ax6hi")]
+position = Vector2(746, 114)
